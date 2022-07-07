@@ -16,7 +16,26 @@ public class User {
     private String lastName;
     @Column(name = "password", nullable = false, length = 64)
     private String password;
+    @Column(name = "verificationCode", length = 64)
+    private String verificationCode;
+    @Column(name = "enable")
+    private boolean enable;
 
+    public String getVerificationCode() {
+        return verificationCode;
+    }
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
+    }
+
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
+    }
     public Long getId() {
         return id;
     }
@@ -55,5 +74,9 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getFullName(){
+        return firstName + " " + lastName;
     }
 }
